@@ -43,7 +43,7 @@ const Login = () => {
       navigate("/");
       console.log("Login successful!");
     } catch (err) {
-      console.error("Error logging in user:", err);
+      toast.error("Error logging in user");
     }
   };
   return (
