@@ -76,35 +76,25 @@ const Meetings = () => {
               spaceBetween: 30,
             },
           }}
-          className="mt-10"
+          className="mt-10 lg:mt-20"
         >
           {meeting.map((meet, index) => (
             <SwiperSlide key={index} className="px-2">
-              <div className="relative h-96 w-full overflow-hidden shadow-2xl lg:h-100 lg:rounded-4xl">
-                {/* Image Div */}
-                <div
-                  className="h-full w-full bg-cover bg-center"
-                  style={{ backgroundImage: `url('${meet.image}')` }}
-                ></div>
-
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/40"></div>
-
-                {/* Card Content */}
-                <div className="absolute bottom-0 z-50 space-y-4 rounded-t-2xl p-4 text-start text-white backdrop-blur-xs">
-                  <h2 className="text-2xl uppercase">{meet.title}</h2>
-                  <p className="text-sm font-light text-gray-200">
-                    {meet.description}
-                  </p>
-
-                  <div className="flex items-center gap-4">
-                    <p className="rounded-full bg-black/20 px-2 py-1 text-sm">
-                      {meet.day}
-                    </p>
-                    <p className="rounded-full bg-black/20 px-2 py-1 text-sm">
-                      {meet.time}
-                    </p>
-                  </div>
+              <div className="overflow-hidden rounded-4xl">
+                <div className="h-50 w-full">
+                  <img
+                    src={meet.image}
+                    alt="card-image"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div></div>
+                <div className="space-y-5 bg-white px-4 py-5 text-center">
+                  <h2 className="text-xl">{meet.title}</h2>
+                  <p className="text-sm">{meet.description}</p>
+                  <button className="bg-primary rounded-2xl px-3 py-2 text-white">
+                    Read More{" "}
+                  </button>
                 </div>
               </div>
             </SwiperSlide>

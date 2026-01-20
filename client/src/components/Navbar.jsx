@@ -22,7 +22,7 @@ const Navbar = () => {
 
       className={clsx("top-0 z-50 w-full px-5 py-6 text-black", {
         "bg-transparent lg:px-10": isHomePage, // There was an aboslute class here for the demo 1 of the hero section
-        "relative bg-black lg:px-12 lg:py-6": isProfile,
+
         "relative lg:px-12 lg:py-6": !isHomePage,
       })}
     >
@@ -32,12 +32,12 @@ const Navbar = () => {
           <div className="flex items-center gap-3 transition-transform duration-200 hover:scale-105">
             <div
               className={clsx(
-                "flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-gray-800 to-gray-900 shadow-md transition-all duration-200",
+                "bg-primary flex h-12 w-12 items-center justify-center rounded-full shadow-md transition-all duration-200",
               )}
             >
               <span
                 className={clsx(
-                  "font-bold text-white",
+                  "text-accent font-bold",
                   isHomePage ? "text-2xl" : "text-3xl",
                 )}
               >
@@ -45,7 +45,7 @@ const Navbar = () => {
               </span>
             </div>
             <span
-              className={clsx("text-xl text-gray-900 lg:text-2xl", {
+              className={clsx("text-primary text-xl lg:text-2xl", {
                 "": isHomePage,
                 "text-gray-900": isProfile,
               })}

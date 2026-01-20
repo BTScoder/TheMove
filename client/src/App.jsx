@@ -18,7 +18,7 @@ function App() {
     });
   }, []);
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="bg-background flex min-h-screen flex-col">
       <Navbar />
       <main className="grow">
         <Routes>
@@ -26,7 +26,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route
-            path="/profile"
+            path="/profile/*"
             element={
               <ProtectedRoute>
                 <ProfilePage />
