@@ -27,7 +27,7 @@ const FloatingInput = ({ label, type, id, name, ...props }) => {
         />
         <label
           htmlFor={id}
-          className={`pointer-events-none absolute left-3 bg-white px-1 transition-all duration-200 ${
+          className={`bg-background pointer-events-none absolute left-3 px-1 transition-all duration-200 ${
             isFloating
               ? "-top-3 text-sm text-black"
               : "top-3 text-sm text-gray-500"

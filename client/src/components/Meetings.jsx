@@ -76,7 +76,7 @@ const Meetings = () => {
               spaceBetween: 30,
             },
           }}
-          className="mt-10 lg:mt-20"
+          className="mt-20"
         >
           {meeting.map((meet, index) => (
             <SwiperSlide key={index} className="px-2">
@@ -89,8 +89,8 @@ const Meetings = () => {
                   />
                 </div>
                 <div></div>
-                <div className="space-y-5 bg-white px-4 py-5 text-center">
-                  <h2 className="text-xl">{meet.title}</h2>
+                <div className="space-y-5 bg-white px-8 py-5 text-center">
+                  <h2 className="text-2xl uppercase">{meet.title}</h2>
                   <p className="text-sm">{meet.description}</p>
                   <button className="bg-primary rounded-2xl px-3 py-2 text-white">
                     Read More{" "}

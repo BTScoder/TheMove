@@ -16,7 +16,7 @@ const FloatingSelect = ({ label, id, options, ...props }) => {
     <div className="relative">
       <select
         id={id}
-        className="peer w-full cursor-pointer appearance-none rounded-lg border border-gray-300 bg-white px-4 py-5 transition-colors focus:border-black focus:outline-none"
+        className="peer bg-background w-full cursor-pointer appearance-none rounded-lg border border-gray-300 px-4 py-5 transition-colors focus:border-black focus:outline-none"
         onFocus={handleFocus}
         onBlur={handleBlur}
         // defaultValue=""
@@ -43,7 +43,7 @@ const FloatingSelect = ({ label, id, options, ...props }) => {
 
       <label
         htmlFor={id}
-        className={`pointer-events-none absolute left-3 bg-white px-1 transition-all duration-200 ${
+        className={`bg-background pointer-events-none absolute left-3 px-1 transition-all duration-200 ${
           isFloating
             ? "-top-5 text-sm text-black"
             : "top-3 text-sm text-gray-500"

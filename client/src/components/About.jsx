@@ -5,14 +5,9 @@ const About = () => {
     <>
       <section className="my-25 px-5">
         <div className="mb-10 space-y-5">
-          <motion.h2
-            className="text-start text-5xl font-bold uppercase lg:text-6xl"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          >
+          <h2 className="font-heading text-start text-5xl uppercase lg:text-5xl">
             About The Move Church
-          </motion.h2>
+          </h2>
           <p className="text-start font-light text-gray-500">
             A people of the word and prayer
           </p>
@@ -32,7 +27,7 @@ const About = () => {
               />
             </div>
             <div className="mt-10 space-y-2 lg:mt-0 lg:space-y-10">
-              <h2 className="text-2xl uppercase lg:text-4xl">
+              <h2 className="font-heading text-2xl uppercase lg:text-4xl">
                 <span className="">
                   <Circles />
                 </span>
@@ -60,7 +55,7 @@ const About = () => {
               />
             </div>
             <div className="mt-10 mb-10 space-y-2 lg:mt-0 lg:mb-0 lg:space-y-10">
-              <h2 className="text-4xl uppercase">
+              <h2 className="font-heading text-2xl uppercase lg:text-4xl">
                 <span className="">
                   <Circles />
                 </span>
@@ -94,7 +89,7 @@ const About = () => {
               />
             </div>
             <div className="mt-10 space-y-2 lg:mt-0 lg:space-y-10">
-              <h2 className="text-4xl uppercase">
+              <h2 className="font-heading text-2xl uppercase lg:text-4xl">
                 <span className="">
                   <Circles />
                 </span>
