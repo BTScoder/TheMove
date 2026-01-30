@@ -60,13 +60,17 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ["Instagram", "Facebook", "Twitter", "Friend", "Other"],
     },
+    profilePicture: {
+      type: String,
+      default: "", // Store Cloudinary URL here
+    },
     role: {
       type: String,
       enum: ["user", "admin"],
       default: "user",
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 // Hash password before saving to database

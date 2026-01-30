@@ -1,79 +1,123 @@
-import { Mars, Venus, Pen } from "lucide-react";
+import { useState } from "react";
+import { Mars, Venus, Pen, Mail, Phone, MapPin, Briefcase, User } from "lucide-react";
+import UpdateInfo from "../../components/UpdateInfo.jsx";
+import Modal from "../../components/Modal.jsx";
+import { useUser } from "../../context/UserContext";
+
 const UserProfile = () => {
+  const [open, setOpen] = useState(false);
+  const { user } = useUser();
+
   return (
     <>
-      <div className="flex items-center justify-between">
+      <Modal show={open} onClose={() => setOpen(false)}>
+        <UpdateInfo onClose={() => setOpen(false)} />
+      </Modal>
+
+      {/* Header */}
+      <div className="mb-10 flex items-center justify-between">
         <div>
-          <h2 className="text-4xl uppercase">Personal Information</h2>
-          <p className="mt-4 text-sm text-gray-400">
-            This is the user profile page where personal information is
-            displayed.
+          <h2 className="font-heading text-4xl uppercase">Personal Information</h2>
+          <p className="mt-2 text-sm text-gray-500">
+            Manage and update your personal details
           </p>
         </div>
-        <div>
-          <button className="flex cursor-pointer items-center rounded-xl border px-6 py-2">
-            <span className="me-4 inline-block">
-              <Pen className="h-4 w-4 text-black" />
-            </span>
-            Edit
-          </button>
+        <button
+          className="flex items-center gap-2 rounded-lg bg-button px-6 py-3 text-white transition-colors hover:bg-button/90"
+          onClick={() => setOpen(true)}
+        >
+          <Pen className="h-4 w-4" />
+          Edit Profile
+        </button>
+      </div>
+
+      {/* Profile Card */}
+      <div className="rounded-2xl bg-white p-8 shadow-md">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          
+          {/* First Name */}
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
+              <User className="h-6 w-6 text-blue-600" />
+            </div>
+            <div className="flex-1">
+              <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">First Name</p>
+              <p className="mt-1 text-lg font-semibold text-gray-900">{user?.firstName || "Benedict"}</p>
+            </div>
+          </div>
+
+          {/* Last Name */}
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-100">
+              <User className="h-6 w-6 text-purple-600" />
+            </div>
+            <div className="flex-1">
+              <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Last Name</p>
+              <p className="mt-1 text-lg font-semibold text-gray-900">{user?.lastName || "Umeozor"}</p>
+            </div>
+          </div>
+
+          {/* Email */}
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+              <Mail className="h-6 w-6 text-green-600" />
+            </div>
+            <div className="flex-1">
+              <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Email</p>
+              <p className="mt-1 text-lg font-semibold text-gray-900 break-all">{user?.email || "benedict.umeozor@example.com"}</p>
+            </div>
+          </div>
+
+          {/* Phone */}
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100">
+              <Phone className="h-6 w-6 text-orange-600" />
+            </div>
+            <div className="flex-1">
+              <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Phone Number</p>
+              <p className="mt-1 text-lg font-semibold text-gray-900">{user?.phone || "+1 (555) 123-4567"}</p>
+            </div>
+          </div>
+
+          {/* Gender */}
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-100">
+              {user?.gender === "Male" ? (
+                <Mars className="h-6 w-6 text-blue-500" />
+              ) : (
+                <Venus className="h-6 w-6 text-pink-500" />
+              )}
+            </div>
+            <div className="flex-1">
+              <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Gender</p>
+              <p className="mt-1 text-lg font-semibold text-gray-900">{user?.gender || "Male"}</p>
+            </div>
+          </div>
+
+          {/* Profession */}
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100">
+              <Briefcase className="h-6 w-6 text-indigo-600" />
+            </div>
+            <div className="flex-1">
+              <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Profession</p>
+              <p className="mt-1 text-lg font-semibold text-gray-900">{user?.profession || "Student"}</p>
+            </div>
+          </div>
+
+          {/* Location */}
+          <div className="flex items-center gap-4 lg:col-span-2">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
+              <MapPin className="h-6 w-6 text-red-600" />
+            </div>
+            <div className="flex-1">
+              <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Location</p>
+              <p className="mt-1 text-lg font-semibold text-gray-900">{user?.location || "Lagos"}</p>
+            </div>
+          </div>
+
         </div>
       </div>
-      <section className="mt-10 grid grid-cols-1 space-y-10 lg:grid-cols-2">
-        <div className="flex items-center gap-6">
-          <p className="w-32 text-sm">First Name:</p>
-          <p className="w-[60%] rounded-xl border bg-gray-200 px-5 py-3">
-            Benedict{" "}
-          </p>
-        </div>
-        <div className="flex items-center gap-6">
-          <p className="w-32 text-sm">Last Name:</p>
-          <p className="w-[60%] rounded-xl border bg-gray-200 px-5 py-3">
-            {" "}
-            Umeozor
-          </p>
-        </div>
-        <div className="flex items-center gap-6">
-          <p className="w-32 text-sm">Email:</p>
-          <p className="w-[60%] rounded-xl border bg-gray-200 px-5 py-3 text-sm wrap-normal">
-            {" "}
-            benedict.umeozor@example.com
-          </p>
-        </div>
-        <div className="flex items-center gap-6">
-          <p className="w-32 text-sm">Phone Number:</p>
-          <p className="w-[60%] rounded-xl border bg-gray-200 px-5 py-3">
-            {" "}
-            +1 (555) 123-4567
-          </p>
-        </div>
-        <div className="flex items-center gap-6">
-          <p className="w-32 text-sm">Gender:</p>
-          <p className="w-[60%] rounded-xl">
-            {" "}
-            <span className="me-10 inline-block rounded-full bg-black/10 p-4">
-              <Mars className="h-6 w-6 text-blue-500" />
-            </span>
-            <span className="inline-block rounded-full bg-black/10 p-4">
-              <Venus className="h-6 w-6 text-pink-500" />
-            </span>
-          </p>
-        </div>
-        <div className="flex items-center gap-6">
-          <p className="w-32 text-sm">Profession:</p>
-          <p className="w-[60%] rounded-xl border bg-gray-200 px-5 py-3">
-            {" "}
-            Student
-          </p>
-        </div>
-        <div className="flex items-center gap-6">
-          <p className="w-32 text-sm">Location:</p>
-          <p className="w-[60%] rounded-xl border bg-gray-200 px-5 py-3">
-            {" "}
-            Lagos
-          </p>
-        </div>
-      </section>
     </>
   );
 };

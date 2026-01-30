@@ -7,10 +7,8 @@ const Hero = () => {
     <>
       <section className="min-h-screen py-20 lg:mt-0">
         <div className="mx-auto max-w-xl space-y-6 text-center">
-          <h1 className="font-heading text-6xl font-semibold">
-            The Move Global
-          </h1>
-          <p className="text-sm font-light text-gray-800 italic">
+          <h1 className="font-heading text-6xl uppercase">The Move Global</h1>
+          <p className="text-sm font-light text-gray-800">
             The Move Global is a place to grow in Christ, connect with
             believers, and strengthen your faith through shared learning.
           </p>

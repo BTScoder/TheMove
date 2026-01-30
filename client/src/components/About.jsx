@@ -16,14 +16,14 @@ const About = () => {
         <div className="space-y-10">
           {/* About 1 */}
           <div
-            className="my-15 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10"
+            className="my-15 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-30"
             data-aos="slide-right"
           >
             <div className="h-60 w-full shadow-xl lg:h-80">
               <img
-                src="/prayer1.jpeg"
+                src="/spreading.jpg"
                 alt="about"
-                className="h-full w-full rounded-2xl object-cover"
+                className="h-full w-full rounded-2xl object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
             <div className="mt-10 space-y-2 lg:mt-0 lg:space-y-10">
@@ -44,14 +44,14 @@ const About = () => {
 
           {/* About 2 */}
           <div
-            className="my-15 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10"
+            className="my-15 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-30"
             data-aos="slide-left"
           >
             <div className="h-60 w-full lg:hidden lg:h-80">
               <img
-                src="/Prayer3.png"
+                src="/fellowshipping.jpg"
                 alt="about"
-                className="h-full w-full rounded-2xl object-cover"
+                className="h-full w-full scale-105 rounded-2xl object-cover transition-transform duration-500 hover:scale-110"
               />
             </div>
             <div className="mt-10 mb-10 space-y-2 lg:mt-0 lg:mb-0 lg:space-y-10">
@@ -70,25 +70,25 @@ const About = () => {
             </div>
             <div className="hidden h-60 w-full lg:block lg:h-80">
               <img
-                src="/Prayer3.png"
+                src="/fellowshipping.jpg"
                 alt="about"
-                className="h-full w-full rounded-2xl object-cover"
+                className="h-full w-full scale-105 rounded-2xl object-cover transition-transform duration-500 hover:scale-110"
               />
             </div>
           </div>
           {/* About 3 */}
           <div
-            className="my-10 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10"
+            className="my-10 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-30"
             data-aos="slide-right"
           >
             <div className="h-60 w-full lg:h-80">
               <img
-                src="/prayer1.jpeg"
+                src="/growing.jpg"
                 alt="about"
-                className="h-full w-full rounded-2xl object-cover"
+                className="h-full w-full scale-105 rounded-2xl object-cover transition-transform duration-500 hover:scale-110"
               />
             </div>
-            <div className="mt-10 space-y-2 lg:mt-0 lg:space-y-10">
+            <div className="mt-10 space-y-2 text-center md:text-start lg:mt-0 lg:space-y-10">
               <h2 className="font-heading text-2xl uppercase lg:text-4xl">
                 <span className="">
                   <Circles />

@@ -15,7 +15,7 @@ const makeAdmin = async () => {
       },
       {
         role: "admin",
-      }
+      },
     );
     console.log("Admin made successfully", result);
     process.exit();

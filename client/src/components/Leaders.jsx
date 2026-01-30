@@ -29,9 +29,7 @@ const Leaders = () => {
   return (
     <>
       <section className="mt-16 px-4 lg:mt-24">
-        <h2 className="text-4xl font-bold uppercase lg:text-6xl">
-          Meet our Leaders
-        </h2>
+        <h2 className="font-heading text-4xl lg:text-6xl">Meet our Leaders</h2>
 
         {/* Slider */}
         <Swiper
