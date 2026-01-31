@@ -5,7 +5,7 @@ const About = () => {
     <>
       <section className="my-25 px-5">
         <div className="mb-10 space-y-5">
-          <h2 className="font-heading text-start text-5xl uppercase lg:text-5xl">
+          <h2 className="font-heading text-start text-4xl uppercase lg:text-5xl">
             About The Move Church
           </h2>
           <p className="text-start font-light text-gray-500">
@@ -13,10 +13,10 @@ const About = () => {
           </p>
         </div>
 
-        <div className="space-y-10">
+        <div className="">
           {/* About 1 */}
           <div
-            className="my-15 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-30"
+            className="my-20 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-30"
             data-aos="slide-right"
           >
             <div className="h-60 w-full shadow-xl lg:h-80">
@@ -44,7 +44,7 @@ const About = () => {
 
           {/* About 2 */}
           <div
-            className="my-15 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-30"
+            className="my-20 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-30"
             data-aos="slide-left"
           >
             <div className="h-60 w-full lg:hidden lg:h-80">
@@ -88,7 +88,7 @@ const About = () => {
                 className="h-full w-full scale-105 rounded-2xl object-cover transition-transform duration-500 hover:scale-110"
               />
             </div>
-            <div className="mt-10 space-y-2 text-center md:text-start lg:mt-0 lg:space-y-10">
+            <div className="mt-10 space-y-2 text-start lg:mt-0 lg:space-y-10">
               <h2 className="font-heading text-2xl uppercase lg:text-4xl">
                 <span className="">
                   <Circles />

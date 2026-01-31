@@ -1,190 +1,234 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { motion } from "framer-motion";
 const Meetings = () => {
-  const meeting = [
+  const meetings = [
     {
       day: "Monday",
-      image: "/prayer1.jpeg",
-      time: "9:00 PM - 10 PM",
-      title: "Prayer Meeting",
-      description:
-        "Join us every Monday at 8:45 PM for our weekly prayer meeting. Come together with fellow members to pray, reflect, and seek spiritual guidance.",
+      sessions: [
+        {
+          name: "Morning Prayers",
+          time: "6am - 7am",
+        },
+        {
+          name: "Afternoon Prayers",
+          time: "12noon - 1pm",
+        },
+        {
+          name: "Evening Prayers",
+          time: "8pm - 10pm",
+        },
+      ],
     },
     {
       day: "Tuesday",
-      image: "/bible-study.jpg",
-      time: "8:45 PM - 11 PM",
-      title: "Bible Study",
-      description:
-        "Join us every Tuesday at 8:45 PM for our engaging Bible study sessions. Dive deep into the scriptures, discuss interpretations, and grow in your faith alongside fellow believers.",
+      sessions: [
+        {
+          name: "Morning Prayers",
+          time: "6am - 7am",
+        },
+        {
+          name: "Afternoon Prayers",
+          time: "12noon - 1pm",
+        },
+      ],
+    },
+    {
+      day: "Wednesday",
+      sessions: [
+        {
+          name: "Morning Prayers",
+          time: "6am",
+        },
+        {
+          name: "Afternoon Prayers",
+          time: "12noon",
+        },
+        {
+          name: "Evening Prayers",
+          time: "9pm - 10pm",
+        },
+      ],
     },
     {
       day: "Thursday",
-      image: "/spirit.jpg",
-      time: "9:00 PM - 10 PM",
-      title: "School of the Spirit",
-      description:
-        "Join us every Thursday at 9:00 PM for our School of the Spirit sessions. Engage in spiritual teachings, worship, and fellowship to deepen your connection with the Holy Spirit.",
+      sessions: [
+        {
+          name: "Morning Prayers",
+          time: "6am - 7am",
+        },
+        {
+          name: "Afternoon Prayers",
+          time: "12noon - 1pm",
+        },
+        {
+          name: "Evening Prayers",
+          time: "9pm - 10pm",
+        },
+      ],
     },
     {
       day: "Friday",
-      time: "9:00 PM - 10 PM",
-      image: "/prayer.jpg",
-      title: "Prayer Meeting",
-      description:
-        "Join us every Friday at 9:00 PM for our weekly prayer meeting. Come together with fellow members to pray, reflect, and seek spiritual guidance.",
+      sessions: [
+        {
+          name: "Morning Prayers",
+          time: "6am - 7am",
+        },
+        {
+          name: "Afternoon Prayers",
+          time: "12noon - 1pm",
+        },
+        {
+          name: "Evening Prayers Stretch",
+          time: "8pm - 11pm",
+        },
+      ],
     },
     {
       day: "Saturday",
-      image: "/study.jpg",
-      time: "9:00 PM - 10 PM",
-      title: "Bible Study",
-      description:
-        "Join us every Saturday at 9:00 PM for our weekly Bible study sessions. Dive deep into the scriptures, discuss interpretations, and grow in your faith alongside fellow believers.",
+      sessions: [
+        {
+          name: "Morning Prayers",
+          time: "6am - 7am",
+        },
+        {
+          name: "Afternoon Prayers",
+          time: "12noon - 1pm",
+        },
+      ],
+    },
+    {
+      day: "Sunday",
+      sessions: [
+        {
+          name: "Morning Prayers",
+          time: "6am - 6:30am",
+        },
+        {
+          name: "Afternoon Prayers",
+          time: "12noon - 1pm",
+        },
+        {
+          name: "Evening Prayers",
+          time: "8pm - 9pm",
+        },
+      ],
     },
   ];
   return (
     <>
-      <section className="mt-16 px-5 lg:mt-30">
-        <div className="space-y-10">
-          <h2 className="text-4xl text-gray-500 uppercase">
-            Committed to your Spiritual growth
+      <motion.section
+        className="mt-16 px-5 lg:mt-30"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="max-h-[90vh] w-full overflow-auto rounded-2xl bg-amber-900/10 p-5 md:p-10">
+          <h2 className="font-heading text-2xl uppercase md:text-4xl">
+            Committed to your spiritual growth
           </h2>
-          <h2 className="text-6xl">Our Online Meetings</h2>
-        </div>
+          <p className="my-3 text-sm font-light uppercase md:text-base">
+            Here is a list of our weekly online meetings{" "}
+          </p>
 
-        <Swiper
-          modules={[Autoplay]}
-          slidesPerView={1} // 1 slide on mobile
-          spaceBetween={20}
-          loop={true}
-          speed={3000}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          breakpoints={{
-            640: {
-              slidesPerView: 2, // 2 slides on tablets
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 3, // 3 slides on desktop
-              spaceBetween: 30,
-            },
-          }}
-          className="mt-20"
-        >
-          {meeting.map((meet, index) => (
-            <SwiperSlide key={index} className="px-2">
-              <div className="overflow-hidden rounded-4xl">
-                <div className="h-50 w-full">
-                  <img
-                    src={meet.image}
-                    alt="card-image"
-                    className="h-full w-full object-cover"
-                  />
+          {/* Mobile View - Card Layout */}
+          <div className="mt-6 space-y-4 md:hidden">
+            {meetings.map((meet) => (
+              <motion.div
+                key={meet.day}
+                className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="border-b border-gray-200 bg-amber-900/20 px-4 py-3">
+                  <h3 className="font-heading text-lg font-semibold text-black uppercase">
+                    {meet.day}
+                  </h3>
                 </div>
-                <div></div>
-                <div className="space-y-5 bg-white px-8 py-5 text-center">
-                  <h2 className="text-2xl uppercase">{meet.title}</h2>
-                  <p className="text-sm">{meet.description}</p>
-                  <button className="bg-primary rounded-2xl px-3 py-2 text-white">
-                    Read More{" "}
-                  </button>
+                <div className="divide-y divide-gray-200">
+                  {meet.sessions.map((session, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between px-4 py-3"
+                    >
+                      <div className="flex-1">
+                        <p className="text-sm font-medium text-gray-900">
+                          {session.name}
+                        </p>
+                      </div>
+                      <div className="ml-4">
+                        <p className="text-sm font-semibold text-amber-900">
+                          {session.time}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        {/* Physical meetings */}
-        <div className="mt-10 lg:mt-20">
-          <div className="lg:text-end">
-            <h2 className="text-4xl uppercase lg:text-6xl lg:capitalize">
-              Online Meetings not enough?
-            </h2>
-            {/* <p className="font-light text-gray-600">We meet in person too</p> */}
+              </motion.div>
+            ))}
           </div>
 
-          <div className="items-center gap-10 lg:mt-10 lg:grid lg:grid-cols-2">
-            <div className="relative grid h-full w-full grid-cols-2 gap-6 px-5 py-10">
-              <div
-                className="h-full w-full"
-                data-aos="fade-in"
-                data-aos-duration="1000"
-              >
-                <img
-                  src="/physical1.jpg"
-                  alt=""
-                  className="z-50 h-full w-full object-cover"
-                />
-              </div>
-              <div className="space-y-2">
-                <div
-                  className="h-40 w-full"
-                  data-aos="slide-up"
-                  data-aos-duration="1000"
-                >
-                  <img
-                    src="/physical2.jpg"
-                    alt=""
-                    className="aspect-video h-full w-full"
-                  />
-                </div>
-                <div
-                  className="h-24 w-24"
-                  data-aos="slide-up"
-                  data-aos-duration="1000"
-                >
-                  <img
-                    src="/physical3.jpg"
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
+          {/* Desktop View - Table Layout */}
+          <div className="mt-10 hidden overflow-x-auto rounded-xl md:block">
+            <table className="min-w-full border-collapse bg-white">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="font-heading border-b-2 border-gray-200 px-6 py-3 text-left text-sm text-gray-500 uppercase">
+                    Day
+                  </th>
+                  <th className="font-heading border-b-2 border-gray-200 px-6 py-3 text-left text-sm text-gray-500 uppercase">
+                    Meetings
+                  </th>
+                  <th className="font-heading border-b-2 border-gray-200 px-6 py-3 text-left text-sm text-gray-500 uppercase">
+                    Time
+                  </th>
+                </tr>
+              </thead>
 
-              {/* Diagonal Lines */}
-              <svg
-                className="absolute bottom-0 left-0 z-0 w-full"
-                viewBox="0 0 400 80"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {[...Array(8)].map((_, i) => (
-                  <line
-                    key={i}
-                    x1={i * 50}
-                    y1="80"
-                    x2={i * 50 + 40}
-                    y2="0"
-                    stroke="#9ca3af"
-                    strokeWidth="2"
-                  />
+              <tbody className="divide-y divide-gray-200">
+                {meetings.map((meet) => (
+                  <tr
+                    key={meet.day}
+                    className="transition-colors hover:bg-gray-50"
+                  >
+                    <td className="px-6 py-4 align-top font-semibold text-black uppercase">
+                      {meet.day}
+                    </td>
+                    <td className="py-4 text-gray-700">
+                      {meet.sessions.map((session, index) => (
+                        <p
+                          key={index}
+                          className={`px-6 py-3 ${
+                            index < meet.sessions.length - 1
+                              ? "border-b border-gray-100"
+                              : ""
+                          }`}
+                        >
+                          {session.name}
+                        </p>
+                      ))}
+                    </td>
+                    <td className="py-4 font-medium text-amber-900">
+                      {meet.sessions.map((session, index) => (
+                        <p
+                          key={index}
+                          className={`px-6 py-3 ${
+                            index < meet.sessions.length - 1
+                              ? "border-b border-gray-100"
+                              : ""
+                          }`}
+                        >
+                          {session.time}
+                        </p>
+                      ))}
+                    </td>
+                  </tr>
                 ))}
-              </svg>
-            </div>
-            <div className="space-y-5 lg:px-10 lg:py-20">
-              <h2 className="text-4xl uppercase">
-                No Problem. We meet in person to
-              </h2>
-              <p className="text-sm font-light text-gray-600">
-                We hold physical gatherings where members come together for
-                prayer, teaching, and fellowship. Join us as we grow together,
-                encourage one another, and experience community face to face.
-              </p>
-              <div>
-                <button className="bg-black px-6 py-2 text-white">
-                  Register
-                </button>
-              </div>
-            </div>
+              </tbody>
+            </table>
           </div>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };
