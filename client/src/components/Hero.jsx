@@ -16,7 +16,7 @@ const Hero = () => {
             Join Us
           </button>
         </div>
-        <div className="mt-15 grid h-80 grid-cols-3 gap-10 px-10">
+        <div className="mt-15 grid h-80 grid-cols-2 gap-3 px-10 lg:grid-cols-3 lg:gap-10">
           <div className="overflow-hidden rounded-2xl shadow-2xl">
             <img
               src="/HeroMaybe.png"
@@ -31,7 +31,7 @@ const Hero = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="overflow-hidden rounded-2xl shadow-2xl">
+          <div className="col-span-2 overflow-hidden rounded-2xl shadow-2xl lg:col-span-1">
             <img
               src="/HeroImage.png"
               alt="heroflat"

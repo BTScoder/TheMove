@@ -37,7 +37,7 @@ const Navbar = () => {
             >
               <span
                 className={clsx(
-                  "text-accent font-bold",
+                  "font-bold text-white",
                   isHomePage ? "text-2xl" : "text-3xl",
                 )}
               >
@@ -141,7 +141,7 @@ const Navbar = () => {
         <button
           className={clsx(
             "md:hidden",
-            isHomePage ? "text-white" : "text-gray-900",
+            isHomePage ? "text-primary" : "text-gray-900",
           )}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
