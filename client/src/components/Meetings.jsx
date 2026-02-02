@@ -121,14 +121,15 @@ const Meetings = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-h-[90vh] w-full overflow-auto rounded-2xl bg-amber-900/10 p-5 md:p-10">
+        <div className="mb-10">
           <h2 className="font-heading text-2xl uppercase md:text-4xl">
             Committed to your spiritual growth
           </h2>
           <p className="my-3 text-sm font-light uppercase md:text-base">
             Here is a list of our weekly online meetings{" "}
           </p>
-
+        </div>
+        <div className="max-h-[90vh] w-full overflow-auto rounded-2xl bg-amber-900/10 p-5 md:p-10">
           {/* Mobile View - Card Layout */}
           <div className="mt-6 space-y-4 md:hidden">
             {meetings.map((meet) => (
