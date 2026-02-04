@@ -29,31 +29,7 @@ const Navbar = () => {
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         {/* Logo */}
         <Link to="/" className="group">
-          <div className="flex items-center gap-3 transition-transform duration-200 hover:scale-105">
-            <div
-              className={clsx(
-                "bg-primary flex h-12 w-12 items-center justify-center rounded-full shadow-md transition-all duration-200",
-              )}
-            >
-              <span
-                className={clsx(
-                  "font-bold text-white",
-                  isHomePage ? "text-2xl" : "text-3xl",
-                )}
-              >
-                G
-              </span>
-            </div>
-            <span
-              className={clsx("text-primary text-xl lg:text-2xl", {
-                "": isHomePage,
-                "text-gray-900": isProfile,
-              })}
-            >
-              <span className="font-bold">Grace</span>
-              <span className="font-light">Community</span>
-            </span>
-          </div>
+          <img src="/GCLogoBlack.png" alt="Grace Community Logo" />
         </Link>
 
         {/* Navigation Links */}

@@ -3,7 +3,7 @@ import Circles from "./doodles/Circles";
 const About = () => {
   return (
     <>
-      <section className="g:my-25 my-20 px-5">
+      <section className="my-20 px-5">
         <div className="mb-10 space-y-5">
           <h2 className="font-heading text-start text-4xl uppercase lg:text-5xl">
             About The Move Church
