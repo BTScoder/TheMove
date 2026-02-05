@@ -5,52 +5,38 @@ import Arrows from "./doodles/Arrows";
 const Hero = () => {
   return (
     <>
-      <section className="min-h-screen pt-0 lg:mt-0 lg:pt-20">
-        <div className="bg-button/15 mx-auto w-full px-5 py-20 text-center">
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
-          >
-            <motion.h1
-              className="font-heading text-6xl tracking-[0.15em] uppercase"
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 3, duration: 0.8, ease: "easeOut" }}
-            >
-              The Move Global
-            </motion.h1>
-            <p className="mx-auto max-w-sm font-light text-gray-800 lg:text-sm">
+      <section className="grid min-h-screen grid-cols-1 lg:grid lg:grid-cols-2">
+        <div className="bg-hero flex items-center justify-center px-10">
+          <div className="space-y-6">
+            <h1 className="font-heading text-6xl">The Move Global</h1>
+            <p className="ms-2">
               The Move Global is a place to grow in Christ, connect with
               believers, and strengthen your faith through shared learning.
             </p>
-            <Link to="/register">
-              <button className="bg-button cursor-pointer rounded-md px-6 py-2 text-white transition-all duration-300 hover:scale-105 hover:bg-amber-900/90">
-                Join Us
-              </button>
-            </Link>
-          </motion.div>
+            <button className="bg-button hover:border-button hover:text-button rounded-2xl px-8 py-3 text-white transition-colors duration-300 hover:border-2 hover:bg-transparent">
+              Join us
+            </button>
+          </div>
         </div>
-        <div className="mt-15 grid auto-rows-[200px] grid-cols-2 gap-3 px-10 lg:h-150 lg:auto-rows-auto lg:grid-cols-3 lg:gap-10">
-          <div className="overflow-hidden rounded-2xl shadow-2xl">
-            <img
-              src="/HeroMaybe.png"
-              alt="heroflat"
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="overflow-hidden rounded-2xl shadow-2xl">
-            <img
-              src="/hero-1.jpeg"
-              alt="heroflat"
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="col-span-2 overflow-hidden rounded-2xl shadow-2xl lg:col-span-1">
+        <div className="relative hidden bg-white px-5 py-10 lg:block">
+          <div className="aspect-video overflow-hidden rounded-xl">
             <img
               src="/HeroImage.png"
-              alt="heroflat"
+              alt=""
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="absolute top-70 right-10 h-60 w-60 overflow-hidden rounded-xl">
+            <img
+              src="/hero-1.jpeg"
+              alt=""
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="absolute top-100 h-50 w-90 overflow-hidden rounded-xl">
+            <img
+              src="/HeroMaybe.png"
+              alt=""
               className="h-full w-full object-cover"
             />
           </div>

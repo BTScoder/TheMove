@@ -15,17 +15,7 @@ const Navbar = () => {
 
   const { user, logoutUser } = useUser();
   return (
-    <nav
-      // className={`${
-      //   isHomePage ? "absolute bg-transparent" : "relative bg-black"
-      // } top-0 z-50 w-full px-5 py-6 lg:px-10`}
-
-      className={clsx("top-0 z-50 w-full px-5 py-6 text-black", {
-        "bg-transparent lg:px-10": isHomePage, // There was an aboslute class here for the demo 1 of the hero section
-
-        "relative lg:px-12 lg:py-6": !isHomePage,
-      })}
-    >
+    <nav className="bg-white px-4 py-6 text-black">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         {/* Logo */}
         <Link to="/" className="group">
@@ -96,7 +86,7 @@ const Navbar = () => {
               <Link
                 to="/register"
                 className={clsx(
-                  "rounded-lg border-2 border-gray-800 bg-gray-800 px-6 py-2 text-sm font-medium text-white transition-all hover:bg-gray-900 lg:text-base",
+                  "bg-button rounded-lg border-2 px-6 py-2 text-sm font-medium text-white transition-all hover:bg-gray-900 lg:text-base",
                 )}
               >
                 Register
@@ -184,7 +174,7 @@ const Navbar = () => {
               <>
                 <Link
                   to="/register"
-                  className="rounded-lg border-2 border-white/50 bg-white/10 px-6 py-2 text-center text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white hover:bg-white/20"
+                  className="bg-button rounded-lg border-2 px-6 py-2 text-center text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white hover:bg-white/20"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Register

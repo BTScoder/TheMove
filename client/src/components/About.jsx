@@ -4,7 +4,7 @@ const About = () => {
   return (
     <>
       <section className="my-20 px-5">
-        <div className="mb-10 space-y-5">
+        <div className="mb-5 space-y-5">
           <h2 className="font-heading text-start text-4xl uppercase lg:text-5xl">
             About The Move Church
           </h2>
@@ -16,7 +16,7 @@ const About = () => {
         <div className="">
           {/* About 1 */}
           <div
-            className="my-20 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-30"
+            className="my-10 lg:mt-20 lg:grid lg:grid-cols-2 lg:items-center lg:gap-30"
             data-aos="slide-right"
           >
             <div className="h-60 w-full shadow-xl lg:h-80">
