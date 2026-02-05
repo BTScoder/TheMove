@@ -5,7 +5,7 @@ import Arrows from "./doodles/Arrows";
 const Hero = () => {
   return (
     <>
-      <section className="min-h-screen pt-10 lg:mt-0 lg:pt-20">
+      <section className="min-h-screen pt-0 lg:mt-0 lg:pt-20">
         <div className="bg-button/15 mx-auto w-full px-5 py-20 text-center">
           <motion.div
             className="space-y-6"

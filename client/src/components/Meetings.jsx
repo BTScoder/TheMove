@@ -122,7 +122,7 @@ const Meetings = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="mb-10">
-          <h2 className="font-heading text-2xl uppercase md:text-4xl">
+          <h2 className="font-heading text-4xl uppercase md:text-4xl">
             Committed to your spiritual growth
           </h2>
           <p className="my-3 text-sm font-light uppercase md:text-base">
