@@ -11,9 +11,12 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="lg:bg-hero relative flex items-center justify-center bg-[url('/hero-1.jpeg')] bg-cover bg-center px-10 lg:bg-none">
-          <div className="absolute inset-0 bg-black/50"></div>
-          <div className="relative z-10 space-y-6 text-white lg:text-black">
+        <div className="lg:bg-hero/70 relative flex items-center justify-center overflow-hidden rounded-xl bg-[url('/hero-1.jpeg')] bg-cover bg-center px-10 lg:bg-none">
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+          <div className="absolute inset-0 hidden text-black/20 lg:block">
+            <CirclePattern />
+          </div>
+          <div className="relative z-10 space-y-6 text-white">
             <motion.h1
               className="font-heading text-6xl"
               initial={{ y: -50, opacity: 0 }}
@@ -23,7 +26,7 @@ const Hero = () => {
               The Move Global
             </motion.h1>
             <motion.p
-              className="ms-2"
+              className="ms-2 font-light text-gray-200"
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 4, duration: 0.8, ease: "easeOut" }}
@@ -49,7 +52,7 @@ const Hero = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="absolute top-70 right-10 h-60 w-60 overflow-hidden rounded-xl">
+          <div className="absolute top-70 right-10 h-60 w-60 overflow-hidden rounded-xl border-5 border-white">
             <img
               src="/hero-1.jpeg"
               alt=""
