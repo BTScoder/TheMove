@@ -33,7 +33,7 @@ const Card = () => {
             <p className="font-heading text-card/70 text-sm tracking-wide uppercase">
               Account Holder:
             </p>
-            <p>John Doe</p>
+            <p>The Move Global</p>
           </div>
 
           {/* <div className="space-y-2">

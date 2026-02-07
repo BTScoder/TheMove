@@ -1,9 +1,15 @@
 import Card from "./donations/Card";
 import Dots from "./doodles/Dots";
 import { Heart } from "lucide-react";
+import { motion } from "framer-motion";
 const Donations = () => {
   return (
-    <section className="bg-donations mt-16 mb-20 grid w-full grid-cols-1 overflow-hidden rounded-lg px-4 py-10 lg:mx-auto lg:mt-24 lg:h-120 lg:max-w-300 lg:grid-cols-2 lg:gap-10">
+    <motion.section
+      className="bg-donations mt-16 mb-20 grid w-full grid-cols-1 overflow-hidden rounded-lg px-4 py-10 lg:mx-auto lg:mt-24 lg:h-120 lg:max-w-300 lg:grid-cols-2 lg:gap-10"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="">
         <Card />
       </div>
@@ -22,7 +28,7 @@ const Donations = () => {
           Donate Now
         </button>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

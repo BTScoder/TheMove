@@ -2,7 +2,7 @@ import { Menu, X } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
 import { useUser } from "../context/UserContext.jsx";
 import ProfileComp from "./ProfileComp.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
@@ -14,6 +14,21 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { user, logoutUser } = useUser();
+
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function to ensure scroll is re-enabled when component unmounts
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
   return (
     <nav className="bg-white px-4 py-6 text-black">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
@@ -106,15 +121,15 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           className={clsx(
-            "md:hidden",
-            isHomePage ? "text-primary" : "text-gray-900",
+            "relative z-[100] md:hidden",
+            isHomePage ? "text-black" : "text-gray-900",
           )}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
-            <X className="h-6 w-6" />
+            <X className="h-10 w-10" />
           ) : (
-            <Menu className="h-6 w-6" />
+            <Menu className="h-10 w-10" />
           )}
         </button>
       </div>
@@ -122,12 +137,12 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <motion.div
-          className="mt-4 rounded-lg bg-black/95 p-6 backdrop-blur-sm md:hidden"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="bg-hero absolute top-0 right-0 left-0 z-[90] h-screen rounded-lg p-6 py-20 md:hidden"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="flex flex-col gap-4">
+          <div className="font-heading flex flex-col items-center justify-center gap-10 uppercase">
             <Link
               to="/"
               className="text-white/90 transition-colors hover:text-white"
@@ -152,40 +167,44 @@ const Navbar = () => {
 
             {user ? (
               <>
-                <Link
-                  to="/profile"
-                  className="flex items-center gap-3 text-white/90 hover:text-white"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <ProfileComp />
-                  <p className="capitalize">Welcome, {user.firstName}</p>
-                </Link>
-                <button
-                  className="text-left text-white/90 hover:text-white"
-                  onClick={() => {
-                    logoutUser();
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  Logout
-                </button>
+                <div className="flex items-center justify-center gap-20">
+                  <Link
+                    to="/profile"
+                    className="flex items-center gap-3 text-white/90 hover:text-white"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <ProfileComp />
+                    <p className="capitalize">Welcome, {user.firstName}</p>
+                  </Link>
+                  <button
+                    className="text-left text-white/90 hover:text-white"
+                    onClick={() => {
+                      logoutUser();
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Logout
+                  </button>
+                </div>
               </>
             ) : (
               <>
-                <Link
-                  to="/register"
-                  className="bg-button rounded-lg border-2 px-6 py-2 text-center text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white hover:bg-white/20"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Register
-                </Link>
-                <Link
-                  to="/login"
-                  className="text-white/90 hover:text-white"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Login
-                </Link>
+                <div className="flex items-center justify-center gap-20">
+                  <Link
+                    to="/register"
+                    className="bg-button rounded-lg px-8 py-4 text-center text-sm font-medium text-white backdrop-blur-sm transition-all"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Register
+                  </Link>
+                  <Link
+                    to="/login"
+                    className="hover:border-button rounded-xl px-8 py-4 text-white/90 transition-all duration-150 hover:border-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                </div>
               </>
             )}
           </div>

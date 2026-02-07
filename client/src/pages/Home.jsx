@@ -10,7 +10,7 @@ const Home = () => {
       <div className="mx-auto max-w-300">
         <About />
         <Meetings />
-        <Leaders />
+        {/* <Leaders /> */}
         <Donations />
       </div>
     </>
